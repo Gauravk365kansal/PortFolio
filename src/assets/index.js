@@ -9,7 +9,7 @@ import close from "./close.svg";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
-import figma from "./tech/figma.png";
+import Sql from "./tech/sql_server_logo1.png";
 import git from "./tech/git.png";
 import html from "./tech/html.png";
 import javascript from "./tech/javascript.png";
@@ -17,17 +17,18 @@ import mongodb from "./tech/mongodb.png";
 import nodejs from "./tech/nodejs.png";
 import reactjs from "./tech/reactjs.png";
 import redux from "./tech/redux.png";
-import tailwind from "./tech/tailwind.png";
+import NET_Core_Logo from "./tech/NET_Core_Logo.png";
 import typescript from "./tech/typescript.png";
-import threejs from "./tech/threejs.svg";
+import dotnet from "./tech/.net_Logo.png";
 
-import meta from "./company/meta.png";
-import shopify from "./company/shopify.png";
-import starbucks from "./company/starbucks.png";
-import tesla from "./company/tesla.png";
 
-import carrent from "./carrent.png";
-import jobit from "./jobit.png";
+import LoyalistCollege from "./company/Loyalist_College.png";
+import shopify from "./company/verdic_logo.png";
+import Graduation from "./company/university-student-graduation-png-22.png";
+import SageGroup from "./company/Sage_Logo.png";
+
+import AZ104 from "./AZ104.jpg";
+import jobit from "./azurefundamentals.jpg";
 import tripguide from "./tripguide.png";
 
 export {
@@ -41,7 +42,7 @@ export {
   close,
   css,
   docker,
-  figma,
+  Sql,
   git,
   html,
   javascript,
@@ -49,14 +50,14 @@ export {
   nodejs,
   reactjs,
   redux,
-  tailwind,
+  NET_Core_Logo,
   typescript,
-  threejs,
-  meta,
+  dotnet,
+  LoyalistCollege,
   shopify,
-  starbucks,
-  tesla,
-  carrent,
+  Graduation,
+  SageGroup,
+  AZ104,
   jobit,
   tripguide,
 };
