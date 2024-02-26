@@ -10,16 +10,39 @@ const Navbar = () => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  const handleDownloadResume = () => {
+  // const handleDownloadResume = () => {
+  //   // Replace this URL with your actual PDF URL
+  //   const resumeUrl =
+  //     "https://gauravresume.s3.ca-central-1.amazonaws.com/Gaurav_.net_Full_Stack_Developer_Resume.docx";
+
+  //   // Triggering the download
+    
+  //   const link = document.createElement("a");
+  //   link.href = resumeUrl;
+  //   link.download = "GauravResume.docx";
+  //   link.click();
+  // };
+
+
+  const handleDownloadResume = (title) => {
+    debugger;
     // Replace this URL with your actual PDF URL
     const resumeUrl =
       "https://gauravresume.s3.ca-central-1.amazonaws.com/Gaurav_.net_Full_Stack_Developer_Resume.docx";
-
-    // Triggering the download
-    const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "GauravResume.docx";
-    link.click();
+  
+    // Check if it's a mobile device
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  
+    if (isMobile) {
+      // Handle the download for mobile devices (e.g., open a new window)
+      window.open(resumeUrl, '_blank');
+    } else {
+      // Handle the download for other devices (e.g., trigger a download)
+      const link = document.createElement('a');
+      link.href = resumeUrl;
+      link.download = `resume_${title.toLowerCase()}.docx`;
+      link.click();
+    }
   };
 
   useEffect(() => {
@@ -63,24 +86,29 @@ const Navbar = () => {
         </Link>
 
         <ul className="list-none hidden sm:flex flex-row gap-10">
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => setActive(nav.title)}
-            >
-              {nav.id === "Resume" ? (
-                <button onClick={handleDownloadResume}>{nav.title}</button>
-              ) : (
-                <a href={`#${nav.id}`}>{nav.title}</a>
-              )}
+  {navLinks.map((nav) => (
+    <li
+      key={nav.id}
+      className={`${
+        active === nav.title ? "text-white" : "text-secondary"
+      } hover:text-white text-[18px] font-medium cursor-pointer`}
+      onClick={() => setActive(nav.title)}
+    >
+      {nav.id === "Resume" ? (
+        <div
+          onClick={() => handleDownloadResume(nav.title)}
+          className="flex items-center cursor-pointer"
+        >
+          <span>{nav.title}</span>
+        </div>
+      ) : (
+        <a href={`#${nav.id}`}>{nav.title}</a>
+      )}
+    </li>
+  ))}
+</ul>
 
-              {/* <a href={`#${nav.id}`}>{nav.title}</a> */}
-            </li>
-          ))}
-        </ul>
+
 
         <div className="sm:hidden flex flex-1 justify-end items-center">
           <img
